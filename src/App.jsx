@@ -17,7 +17,7 @@ function App() {
   };
 
   const onClickDeleteHandler = (index) => { 
-    setTodoListArray(todoListArray.filter((_,i) => i != index))
+    setTodoListArray(todoListArray.filter((_,i) => i !== index))
   }
 
   const toggleTodoStatus = (index) => {
