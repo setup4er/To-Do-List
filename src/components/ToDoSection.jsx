@@ -7,7 +7,6 @@ import '../styles/ToDoSection.css'
 export const ToDoSection = ({onClickDeleteHandler, todoListArray, toggleTodoStatus}) =>{
     return todoListArray.map((todo, index) => (
 
-
           <div key={index} className="todo-item">
             
             <img className="statusPng" 

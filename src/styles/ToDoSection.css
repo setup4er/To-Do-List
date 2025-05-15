@@ -18,6 +18,11 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 8px;
+  transition: background-color ease-out 0.3s;
+}
+
+.todo-item:hover{
+    background-color: rgb(231, 252, 255);
 }
 
 .todo-item span {
