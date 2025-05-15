@@ -1,15 +1,23 @@
 import { useState } from "react";
-import ToDoWrapper from "./components/ToDoWrapper";
+import {ToDoWrapper} from "./components/ToDoWrapper";
+import {UserConsole} from "./components/UserConsole";
+
+import './styles/App.css'
 
 function App() {
   const [value, setValue] = useState('');
   const [todoListArray, setTodoListArray] = useState([]);
 
   return (
-    <ToDoWrapper value={value} 
-    todoListArray={todoListArray}
-    setValue={setValue}
-    setTodoListArray={setTodoListArray}/>
+    <div className="app-container">
+      <ToDoWrapper 
+        value={value}
+        todoListArray={todoListArray}
+        setValue={setValue}
+        setTodoListArray={setTodoListArray}
+      />
+      <UserConsole />
+    </div>
   );
 }
 

@@ -1,10 +1,7 @@
-import { useState } from "react";
-
-
 import { ToDoSection } from "./ToDoSection";
 import '../styles/ToDoWrapper.css'
 
-function ToDoWrapper({value, todoListArray, setTodoListArray, setValue}) {
+export function ToDoWrapper({value, todoListArray, setTodoListArray, setValue}) {
 
   const onChangeInputHandler = (event) => {
     setValue(event.target.value);
@@ -45,5 +42,3 @@ function ToDoWrapper({value, todoListArray, setTodoListArray, setValue}) {
     </div>
   );
 }
-
-export default ToDoWrapper;
