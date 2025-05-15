@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ToDoSection } from "./components/ToDoSection";
 
+import './styles/App.css'
 
 function App() {
   const [value, setValue] = useState('');

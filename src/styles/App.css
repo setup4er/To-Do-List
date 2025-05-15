@@ -1,0 +1,81 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box; /* Улучшает работу с размерами */
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  margin: 20px auto;
+  border: 12px solid rgb(229, 229, 229);
+  border-radius: 30px;
+  padding: 20px;
+  max-width: 400px;
+  background-color: #f9f9f9; /* Лёгкий фон */
+}
+
+.title {
+  text-align: center; /* Центрируем заголовок */
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-section-item {
+  font-size: 16px; /* Указан фиксированный размер шрифта */
+  padding: 6px;
+  margin: 10px;
+}
+
+.statusPng {
+  max-width: 30px;
+  max-height: 30px;
+  display: block;
+  margin: 5px auto;
+
+}
+
+.todo-section {
+
+  font-size: 18px;
+}
+
+.todo-item {
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.todo-item span {
+    user-select: none; 
+    flex-grow: 1;
+}
+
+input[type="checkbox"] {
+    transform: scale(2);
+    cursor: pointer;
+}
+
+.todo-activity {
+    cursor: pointer;
+    padding: 6px;
+    padding-inline: 10px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 20px
+}
+
+.todo-activity:hover {
+    background-color: darkred; /* Эффект при наведении */
+}

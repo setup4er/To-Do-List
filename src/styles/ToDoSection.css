@@ -1,0 +1,50 @@
+
+.statusPng {
+  max-width: 30px;
+  max-height: 30px;
+  display: block;
+  margin: 5px auto;
+
+}
+
+.todo-section {
+
+  font-size: 18px;
+}
+
+.todo-item {
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.todo-item span {
+    user-select: none; 
+    flex-grow: 1;
+}
+
+input[type="checkbox"] {
+    transform: scale(2);
+    cursor: pointer;
+}
+
+.todo-activity {
+    cursor: pointer;
+    padding: 6px;
+    padding-inline: 10px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 20px
+}
+
+.todo-activity:hover {
+    background-color: darkred; /* Эффект при наведении */
+}
