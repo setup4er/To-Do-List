@@ -1,7 +1,7 @@
 import { ToDoSection } from "./ToDoSection";
 import '../styles/ToDoWrapper.css'
 
-export function ToDoWrapper({value, todoListArray, setTodoListArray, setValue}) {
+export function ToDoWrapper({value, todoListArray, setTodoListArray, setValue, addLog, onClickDeleteHandler}) {
 
   const onChangeInputHandler = (event) => {
     setValue(event.target.value);
@@ -9,19 +9,21 @@ export function ToDoWrapper({value, todoListArray, setTodoListArray, setValue}) 
 
   const onClickTodoHandler = () => {
     setTodoListArray([...todoListArray, { text: value ? value : "( none )", isPassed: false }]);
+    addLog('$Task added: {text: "'+ value + '", isPassed: false}');
     setValue('');
   };
 
-  const onClickDeleteHandler = (index) => { 
-    setTodoListArray(todoListArray.filter((_,i) => i !== index))
-  }
-
   const toggleTodoStatus = (index) => {
-    setTodoListArray(
-      todoListArray.map((todo, i) =>
+    setTodoListArray((prevList) => {
+      const updatedList = prevList.map((todo, i) =>
         i === index ? { ...todo, isPassed: !todo.isPassed } : todo
-      )
-    );
+      );
+
+      const changedTask = updatedList[index]; 
+      addLog(`$Task changed: {text: "${changedTask.text}", isPassed: ${changedTask.isPassed}}`);
+
+      return updatedList;
+    });
   };
 
   return (

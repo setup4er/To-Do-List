@@ -44,7 +44,7 @@ export const ToDoSection = ({onClickDeleteHandler, todoListArray, toggleTodoStat
             className="todo-activity"
             type="button" 
             value="X" 
-            onClick={() => onClickDeleteHandler(index)}
+            onClick={() => onClickDeleteHandler(todoListArray[index].text)}
             />
 
           </div>

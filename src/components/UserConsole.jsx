@@ -1,31 +1,43 @@
 import { useState, useRef, useEffect } from "react";
 import '../styles/UserConsole.css';
 
-export const UserConsole = () => {
-  const [logs, setLogs] = useState([]);
+export const UserConsole = (
+  {addLog, setLogs, logs, onClickDeleteHandler}) => {
+
   const [inputValue, setInputValue] = useState("");
-  const consoleLogRef = useRef(null); // Создаём реф для прокрутки
+  const consoleLogRef = useRef(null);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
-
+  
   const handleEnterPress = (event) => {
-    const time = new Date();
-    const [hours, minutes, seconds] = [String(time.getHours()), String(time.getMinutes()), String(time.getSeconds())];
-    const timeLog = `[${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}:${seconds.padStart(2, '0')}]`;
-
     if (event.key === "Enter" && inputValue.trim()) {
-      setLogs((prevLogs) => [...prevLogs, `${timeLog} ${inputValue}`]);
+      const [command, ...args] = inputValue.split(" ");
+      const taskText = args.join(" ");
+
+      if (command === "delete" && taskText) {
+        onClickDeleteHandler(taskText);
+      } 
+      if(command === "clear") {
+        handleClearConsoleCommand();
+      }else {
+        addLog(`Unknown command: "${command}"`);
+      }
+
       setInputValue("");
     }
   };
+
+  const handleClearConsoleCommand = () =>{
+    setLogs(()=>['Logs is cleared']);
+  }
 
   useEffect(() => {
     if (consoleLogRef.current) {
       consoleLogRef.current.scrollTop = consoleLogRef.current.scrollHeight;
     }
-  }, [logs]); // Прокрутка вниз при изменении логов
+  }, [logs]);
 
   return (
     <div className="console-container">
